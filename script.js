@@ -1,8 +1,6 @@
 const input = document.querySelector('input');
 const btn = document.querySelector('button');
-// const guessList = document.createElement('ul');
 
-// document.body.appendChild(guessList);
 
 let numberOfGuesses = 0;
 let guessedNums = [];
@@ -10,17 +8,10 @@ let guessedNums = [];
 btn.addEventListener('click', () => {
     const num = input.value;
     const randomNum = Math.floor(Math.random() * 50) + 1;
-
     numberOfGuesses++;
-    guessedNums.push(num);
-    
-
-    // guessList.innerHTML = ''; // Clear the previous list
-    // guessedNums.forEach(value => {
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = value;
-    //     guessList.appendChild(listItem);
-    // });
+      
+     input.value = ''; // Clear the input field
+    guessedNums.push(num);  
 
     if (num === randomNum) {
         document.getElementById('firstp').textContent = `You guessed it right!`;
@@ -30,5 +21,17 @@ btn.addEventListener('click', () => {
         document.getElementById('firstp').textContent = `Your guess was too low!`;
     }
     document.getElementById('secondp').textContent = `No. of guesses: ${numberOfGuesses}`;
-    document.getElementById('thirdp').textContent = `You've guessed: ${guessedNums.join(', ')}`;
+   document.getElementById('thirdp').textContent = `You've guessed: ${guessedNums.join(' ')}`;
+
+    if(num > 50){
+        alert('Please enter a number between 1 to 50');
+         document.getElementById('firstp').style.display = 'none';
+         document.getElementById('secondp').style.display = 'none';
+         document.getElementById('thirdp').style.display = 'none';
+    }else{
+        document.getElementById('firstp').style.display = 'block';
+         document.getElementById('secondp').style.display = 'block';
+         document.getElementById('thirdp').style.display = 'block';
+    }
+
 });
