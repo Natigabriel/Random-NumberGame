@@ -16,12 +16,13 @@ btn.addEventListener('click', () => {
     if (num === randomNum) {
         document.getElementById('firstp').textContent = `You guessed it right!`;
     } else if (num > randomNum) {
-        document.getElementById('firstp').textContent = `Your guess was too high!`;
+        document.getElementById('firstp').textC34ontent = `Your guess was too high!`;
     } else {
         document.getElementById('firstp').textContent = `Your guess was too low!`;
     }
     document.getElementById('secondp').textContent = `No. of guesses: ${numberOfGuesses}`;
-   document.getElementById('thirdp').textContent = `You've guessed: ${guessedNums.join(' ')}`;
+   document.getElementById('thirdp').textContent = `You've guessed: ${guessedNums.join(' ,')}`;
+
 
     if(num > 50){
         alert('Please enter a number between 1 to 50');
@@ -33,5 +34,4 @@ btn.addEventListener('click', () => {
          document.getElementById('secondp').style.display = 'block';
          document.getElementById('thirdp').style.display = 'block';
     }
-
 });
